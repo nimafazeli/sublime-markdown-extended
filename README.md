@@ -137,12 +137,12 @@ Note that in order for a language to be highlighted properly, you must have the 
 * `objective-c++`
 * `perl`
 * `r`
+* `stata` : requires `stata.tmLanguage` to be installed
 * `ruby`
 * `sass`
 * `scala`
 * `scss`
 * `shell`
-* `stata`
 * `bash`
 * `sql|ddl|dml`
 * `postgresql|postgres|pgsql`
