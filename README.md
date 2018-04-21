@@ -142,6 +142,7 @@ Note that in order for a language to be highlighted properly, you must have the 
 * `scala`
 * `scss`
 * `shell`
+* `stata`
 * `bash`
 * `sql|ddl|dml`
 * `postgresql|postgres|pgsql`

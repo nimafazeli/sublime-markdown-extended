@@ -1374,6 +1374,39 @@
 				</dict>
 			</array>
 		</dict>
+		<dict> 
+			<key>begin</key> 
+			<string>(```|~~~|{%\s*highlight)\s*(stata)\s*((?:linenos\s*)?%})?$</string>
+			<key>captures</key> 
+			<dict> 
+				<key>1</key> 
+				<dict> 
+					<key>name</key> 
+					<string>punctuation.definition.fenced.markdown</string> 
+				</dict> 
+				<key>2</key> 
+				<dict> 
+					<key>name</key> 
+					<string>variable.language.fenced.markdown</string> 
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.fenced.markdown</string>
+				</dict>
+			</dict> 
+			<key>end</key> 
+			<string>(```|~~~|{%\s*endhighlight\s*%})\n</string>
+			<key>name</key>
+			<string>markup.raw.block.markdown markup.raw.block.fenced.markdown</string>
+			<key>patterns</key>
+			<array> 
+				<dict> 
+					<key>include</key> 
+					<string>source.stata</string> 
+				</dict> 
+			</array> 
+		</dict> 
 		<dict>
 			<key>begin</key>
 			<string>(```|~~~|{%\s*highlight)\s*(swig|liquid)\s*((?:linenos\s*)?%})?$</string>
