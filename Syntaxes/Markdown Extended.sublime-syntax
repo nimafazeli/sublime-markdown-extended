@@ -8,6 +8,7 @@ file_extensions:
   - markdn
   - md.hbs
   - md
+  - stmd
 scope: text.html.markdown
 contexts:
   main:
@@ -504,7 +505,7 @@ contexts:
             3: punctuation.definition.fenced.markdown
           pop: true
         - include: scope:source.r
-    - match: '(```|~~~)\s*\{?\s*(stata)(?:[ \},].*$|\}?$)'
+    - match: '(```|~~~)\s*\{?\s*(stata|s|s/|\{s\})(?:[ \},].*$|\}?$)'
       captures:
         1: punctuation.definition.fenced.markdown
         2: variable.language.fenced.markdown
