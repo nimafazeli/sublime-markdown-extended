@@ -519,7 +519,21 @@ contexts:
             2: variable.language.fenced.markdown
             3: punctuation.definition.fenced.markdown
           pop: true
-        - include: scope:source.stata
+     - match: '(```|~~~)\s*\{?\s*(\{=latex\}|latex|)(?:[ \},].*$|\}?$)'
+      captures:
+        1: punctuation.definition.fenced.markdown
+        2: variable.language.fenced.markdown
+        3: punctuation.definition.fenced.markdown
+      push:
+        - meta_scope: markup.raw.block.markdown markup.raw.block.fenced.markdown
+        - meta_content_scope: source.latex
+        - match: '(```|~~~|{%\s*endhighlight\s*%})\n'
+          captures:
+            1: punctuation.definition.fenced.markdown
+            2: variable.language.fenced.markdown
+            3: punctuation.definition.fenced.markdown
+          pop: true
+        - include: scope:source.latex   - include: scope:source.latex
     - match: '(```|~~~)\s*\{?\s*(todo)(?:[ \},].*$|\}?$)'
       captures:
         1: punctuation.definition.fenced.markdown
