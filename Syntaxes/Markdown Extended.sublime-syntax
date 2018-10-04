@@ -370,6 +370,22 @@ contexts:
             3: punctuation.definition.fenced.markdown
           pop: true
         - include: scope:source.lua
+  # latex-display-pandoc:
+    - match: '(```|~~~)\s*\{?\s*(latex|\{=latex\})(?:[ \},].*$|\}?$)'
+      captures:
+        1: punctuation.definition.fenced.markdown
+        2: variable.language.fenced.markdown
+        3: punctuation.definition.fenced.markdown
+      push:
+        - meta_scope: markup.raw.block.markdown markup.raw.block.fenced.markdown
+        - meta_content_scope: text.tex.latex
+        - match: '(```|~~~|{%\s*endhighlight\s*%})\n'
+          captures:
+            1: punctuation.definition.fenced.markdown
+            2: variable.language.fenced.markdown
+            3: punctuation.definition.fenced.markdown
+          pop: true
+        - include: scope:text.tex.latex
     - match: '(```|~~~|{%\s*highlight)\s*(md|markdown)\s*((?:linenos\s*)?%})?$'
       captures:
         1: punctuation.definition.fenced.markdown
@@ -505,7 +521,7 @@ contexts:
             3: punctuation.definition.fenced.markdown
           pop: true
         - include: scope:source.r
-    - match: '(```|~~~)\s*\{?\s*(stata|s|s/|\{s\})(?:[ \},].*$|\}?$)'
+    - match: '(```|~~~)\s*\{?\s*(stata|s|s/|\{s\}|\{=stata\})(?:[ \},].*$|\}?$)'
       captures:
         1: punctuation.definition.fenced.markdown
         2: variable.language.fenced.markdown
@@ -1351,19 +1367,13 @@ contexts:
           pop: true
 
   latex-display:
-    - match: (\$\$|(`{3}\{=latex\}))
+    - match: (\$\$)
       scope: string.other.math.latex punctuation.definition.string.begin.latex
       push:
         - meta_scope: text.tex.latex meta.environment.math.latex
         - include: scope:text.tex.latex#macros
         - include: scope:text.tex.latex#math-content
-        - match: (\$\$|(`{3}))
+        - match: (\$\$)
           scope: string.other.math.latex punctuation.definition.string.end.latex
           pop: true
-  latex-inline-pandoc:
-    - match: \b.*`\{=latex\}\b
-      scope: string.other.math.latex punctuation.definition.string.begin.latex
-      push:
-        - meta_scope: text.tex.latex 
-        - include: scope:text.tex.latex#macros
-          pop: true
+
